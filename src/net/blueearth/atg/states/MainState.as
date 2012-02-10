@@ -37,10 +37,6 @@ package net.blueearth.atg.states
 			var bg:FlxSprite = new FlxSprite(0, 0, Bg);
 			add(bg);
 			
-			var placeholder:FlxText = new FlxText(FlxG.width*0.5 - 100, 10, 200, "MainState");
-			placeholder.setFormat(null, 13, 0x000000, "center");
-			add(placeholder);
-			
 			_blocks = new FlxGroup();
 			
 			generateLevel();
