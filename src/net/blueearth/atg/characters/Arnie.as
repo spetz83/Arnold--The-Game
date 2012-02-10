@@ -27,7 +27,7 @@ package net.blueearth.atg.characters
 			drag.x = runSpeed*8;
 			acceleration.y = 420;
 			
-			_jumpPower = 200;
+			_jumpPower = 250;
 			maxVelocity.x = runSpeed;
 			maxVelocity.y = _jumpPower;
 			
@@ -64,15 +64,11 @@ package net.blueearth.atg.characters
 			else if(velocity.x == 0)
 			{
 				play('idle');
-				trace("IDLE");
 			}
 			else
 			{
 				play('run');
-				trace("RUN");
 			}
-			
-			trace(velocity.x);
 		}
 	}
 }
