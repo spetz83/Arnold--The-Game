@@ -13,7 +13,6 @@ package
 		public function ArnoldTheGame()
 		{
 			super(400, 300, MainState, 2);
-			//FlxG.bgColor = FlxG.WHITE;
 		}
 	}
 }
