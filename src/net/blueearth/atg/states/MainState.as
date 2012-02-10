@@ -1,6 +1,7 @@
 package net.blueearth.atg.states
 {
 	import net.blueearth.atg.characters.Arnie;
+	import net.blueearth.atg.characters.Predator;
 	
 	import org.flixel.FlxCamera;
 	import org.flixel.FlxG;
@@ -26,6 +27,9 @@ package net.blueearth.atg.states
 		
 		private var _blocks:FlxGroup;
 		private var _objects:FlxGroup;
+		private var _enemies:FlxGroup;
+		
+		private var _enemyArray:Array = new Array();
 		
 		public function MainState()
 		{
@@ -43,6 +47,8 @@ package net.blueearth.atg.states
 			
 			add(_blocks);
 			
+			createEnemies();
+			
 			_player = new Arnie(100, 0);
 			
 			add(_player);
@@ -52,6 +58,34 @@ package net.blueearth.atg.states
 			_objects = new FlxGroup();
 			_objects.add(_player);
 
+		}
+		
+		private function createEnemies():void
+		{
+			_enemies = new FlxGroup();
+			
+			var enemy1:Predator = new Predator(332, 490, "", 418, 35);
+			var enemy2:Predator = new Predator(101, 150, "", 130, 155);
+			var enemy3:Predator = new Predator(524, 599, "", 562, 245);
+			var enemy4:Predator = new Predator(390, 472, "", 429, 385);
+			var enemy5:Predator = new Predator(689, 750, "", 719, 25);
+			var enemy6:Predator = new Predator(690, 750, "", 719, 525);
+			
+			
+			_enemyArray.push(enemy1, enemy2, enemy3, enemy4, enemy5, enemy6);
+			
+			for each(var enemy:Predator in _enemyArray)
+			{
+				add(enemy);
+				
+			}
+			
+			_enemies.add(enemy1);
+			_enemies.add(enemy2);
+			_enemies.add(enemy3);
+			_enemies.add(enemy4);
+			_enemies.add(enemy5);
+			_enemies.add(enemy6);
 		}
 		
 		private function generateLevel():void
@@ -66,6 +100,7 @@ package net.blueearth.atg.states
 			super.update();
 			
 			FlxG.collide(_blocks, _objects);
+			FlxG.collide(_blocks, _enemies);
 		}
 	}
 }

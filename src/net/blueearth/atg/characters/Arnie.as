@@ -42,11 +42,15 @@ package net.blueearth.atg.characters
 			{
 				facing = LEFT;
 				acceleration.x -= drag.x;
+				trace("XPOS = " + x);
+				trace("YPOS = " + y);
 			}
 			else if(FlxG.keys.D)
 			{
 				facing = RIGHT;
 				acceleration.x += drag.x;
+				trace("XPOS = " + x);
+				trace("YPOS = " + y);
 			}
 			if(FlxG.keys.justPressed("SPACE") && !velocity.y)
 			{
