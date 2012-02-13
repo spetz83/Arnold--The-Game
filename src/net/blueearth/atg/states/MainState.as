@@ -31,6 +31,8 @@ package net.blueearth.atg.states
 		
 		private var _enemyArray:Array = new Array();
 		
+		public var tileMap:FlxTilemap;
+		
 		public function MainState()
 		{
 			super();
@@ -90,9 +92,9 @@ package net.blueearth.atg.states
 		
 		private function generateLevel():void
 		{
-			var map:FlxTilemap = new FlxTilemap();
-			map.loadMap(new LevelData(), Floor, 10, 10, 0, 1);
-			_blocks.add(map);
+			this.tileMap = new FlxTilemap();
+			this.tileMap.loadMap(new LevelData(), Floor, 10, 10, 0, 1);
+			_blocks.add(this.tileMap);
 		}
 		
 		override public function update():void
