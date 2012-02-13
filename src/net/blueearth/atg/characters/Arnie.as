@@ -35,6 +35,15 @@ package net.blueearth.atg.characters
 			addAnimation('run', [1, 2, 3, 4, 5, 6, 0], 40);
 		}
 		
+		private function shoot():void
+		{
+			var xVelocity:Number;
+			if(this.facing == LEFT)
+			{
+				
+			}
+		}
+		
 		override public function update():void
 		{
 			acceleration.x = 0;
@@ -52,6 +61,11 @@ package net.blueearth.atg.characters
 			{
 				velocity.y = -_jumpPower;
 				//FlxG.play(SndJump);
+			}
+			
+			if(FlxG.keys.justPressed("B"))
+			{
+				shoot();
 			}
 			
 			if(velocity.y != 0)
