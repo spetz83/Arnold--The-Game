@@ -14,6 +14,9 @@ package net.blueearth.atg.states
 		[Embed(source='assets/images/bg.png')]
 		private var Bg:Class;
 		
+		[Embed(source='assets/audio/expressionsPartOne.mp3')]
+		private var SoundStart:Class;
+		
 		public function MenuState()
 		{
 			super();
@@ -42,6 +45,8 @@ package net.blueearth.atg.states
 			var instructions2:FlxText = new FlxText(FlxG.width*0.5 - 100, 250, 200, "Press [x] for Instructions");
 			instructions2.setFormat(null, 13, 0xFF0000, "center");
 			add(instructions2);
+			
+			FlxG.play(SoundStart);
 		}
 		
 		override public function update():void
