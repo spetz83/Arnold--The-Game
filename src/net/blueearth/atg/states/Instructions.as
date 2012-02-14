@@ -25,10 +25,18 @@ package net.blueearth.atg.states
 			instructions1.setFormat(null, 25, 0x000000, "center");
 			add(instructions1);
 			
-			
-			var instructions2:FlxText = new FlxText(FlxG.width*0.5 - 200, 500, 400, "Press [x] to Continue");
-			instructions2.setFormat(null, 25, 0x000000, "center");
+			var instructions2:FlxText = new FlxText(FlxG.width*0.5 - 200, 80, 400, "You are in the Jungle.");
+			instructions2.setFormat(null, 20, 0x00FF00, "center");
 			add(instructions2);
+			
+			var instructions3:FlxText = new FlxText(FlxG.width*0.5 - 200, 120, 400, "Kill the predators in order to get to da choppa.");
+			instructions3.setFormat(null, 20, 0x00FF00, "center");
+			add(instructions3);
+			
+			
+			var instructions4:FlxText = new FlxText(FlxG.width*0.5 - 200, 200, 400, "Press [x] to Continue");
+			instructions4.setFormat(null, 25, 0xFF0000, "center");
+			add(instructions4);
 		}
 		
 		override public function update():void

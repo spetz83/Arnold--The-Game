@@ -1,6 +1,9 @@
 package net.blueearth.atg.characters
 {
+	import net.blueearth.atg.states.MainState;
+	
 	import org.flixel.FlxG;
+	import org.flixel.FlxGroup;
 	import org.flixel.FlxSprite;
 	
 	public class Arnie extends FlxSprite
@@ -9,12 +12,15 @@ package net.blueearth.atg.characters
 		private var Hero:Class;
 		private var _jumpPower:int;
 		
+		private var _bullets:FlxGroup;
 		
-		
-		public function Arnie(X:Number=0, Y:Number=0, SimpleGraphic:Class=null)
+		public function Arnie(X:Number, Y:Number, bullets:FlxGroup)
 		{
 			super(X, Y);
+			
 			loadGraphic(Hero, true, true, 40, 60, true);
+			
+			_bullets = bullets;
 			
 			width = 30;
 			height = 55;
@@ -33,6 +39,7 @@ package net.blueearth.atg.characters
 			
 			addAnimation('idle', [0]);
 			addAnimation('run', [1, 2, 3, 4, 5, 6, 0], 40);
+			//setupBullets(6);
 		}
 		
 		private function shoot():void
@@ -40,8 +47,25 @@ package net.blueearth.atg.characters
 			var xVelocity:Number;
 			if(this.facing == LEFT)
 			{
-				
+				xVelocity = 200;
 			}
+			else
+			{
+				xVelocity = -200;
+			}
+			trace("shooting");
+			/*for(var i:int=0; i<_bullets.length; i++)
+			{
+				if(!_bullets[i].exists)
+				{
+					_bullets[i].reset(this.x, this.y +2, xVelocity);
+					return;
+				}
+			}
+			
+			var bullet:Bullet = new Bullet(this.x, this.y+2, xVelocity);
+			bullet.reset(this.x, this.y, xVelocity);
+			_bullets.push(MainState.l*/
 		}
 		
 		override public function update():void
@@ -65,7 +89,8 @@ package net.blueearth.atg.characters
 			
 			if(FlxG.keys.justPressed("B"))
 			{
-				shoot();
+				getMidpoint(_point);
+				(_bullets.recycle(Bullet) as Bullet).shoot(_point, facing);
 			}
 			
 			if(velocity.y != 0)

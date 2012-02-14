@@ -1,5 +1,7 @@
 package
 {
+	import net.blueearth.atg.states.GameOverState;
+	import net.blueearth.atg.states.Instructions;
 	import net.blueearth.atg.states.MainState;
 	import net.blueearth.atg.states.MenuState;
 	
@@ -12,7 +14,7 @@ package
 	{
 		public function ArnoldTheGame()
 		{
-			super(400, 300, MainState, 2);
+			super(400, 300, MenuState, 2);
 			forceDebugger = true;
 		}
 	}
