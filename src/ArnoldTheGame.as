@@ -15,7 +15,7 @@ package
 		public function ArnoldTheGame()
 		{
 			super(400, 300, MenuState, 2);
-			forceDebugger = true;
+			//forceDebugger = true;
 		}
 	}
 }
